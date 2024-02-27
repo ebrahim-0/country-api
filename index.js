@@ -2,12 +2,27 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const connectDB = require("./db");
 const Country = require("./Models/Country");
+const cors = require("cors");
+const compression = require("compression");
+
 require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 connectDB();
+
+app.use(compression());
+
+// Enable CORS for all routes
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+  })
+);
 
 // Middleware
 app.use(bodyParser.json());
