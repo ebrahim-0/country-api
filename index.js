@@ -14,9 +14,8 @@ app.use(bodyParser.json());
 
 app.get("/", async (req, res) => {
   res.json({
-    message: `Countries Api
-    use /countries to get all countries
-    `,
+    message:
+      "Countries Api  use /countries to get all countries and to post a new country",
   });
 });
 
