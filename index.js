@@ -12,6 +12,14 @@ connectDB();
 // Middleware
 app.use(bodyParser.json());
 
+app.get("/", async (req, res) => {
+  res.json({
+    message: `Countries Api
+    use /countries to get all countries
+    `,
+  });
+});
+
 // Routes
 app.get("/countries", async (req, res) => {
   try {
